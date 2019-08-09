@@ -40,7 +40,7 @@ void __restore_layers_path(const gchar *old_value)
 
 gboolean __layer_load(const gchar *label_or_home, gboolean force_prepend, GString **bash_cmds)
 {
-    LayerApi2Layer *tempo = layerapi2_layer_load(label_or_home, force_prepend, bash_cmds);
+    LayerApi2Layer *tempo = layerapi2_layer_load(label_or_home, force_prepend, TRUE, bash_cmds);
     if (tempo != NULL) {
         layerapi2_layer_free(tempo);
         return TRUE;

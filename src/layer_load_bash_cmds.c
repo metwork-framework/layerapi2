@@ -6,9 +6,11 @@
 #include "layerapi2.h"
 
 static gboolean debug_mode = FALSE;
+static gboolean dont_load_optional = FALSE;
 static gboolean force_prepend = FALSE;
 static GOptionEntry entries[] = {
     { "debug", 'd', 0, G_OPTION_ARG_NONE, &debug_mode, "debug mode", NULL },
+    { "dont-load-optional", 'd', 0, G_OPTION_ARG_NONE, &dont_load_optional, "don't load optional layers", NULL },
     { "force-prepend", 'f', 0, G_OPTION_ARG_NONE, &force_prepend, "do not check existing paths in prepend", NULL },
     {0, 0, 0, 0, 0, 0, 0}
 };
@@ -32,7 +34,7 @@ int main(int argc, char *argv[])
     layerapi2_init(debug_mode);
     const gchar *label_or_home = argv[1];
     GString *gs = g_string_new(NULL);
-    LayerApi2Layer *res = layerapi2_layer_load(label_or_home, force_prepend, &gs);
+    LayerApi2Layer *res = layerapi2_layer_load(label_or_home, force_prepend, !dont_load_optional, &gs);
     if (res != NULL) {
         gchar *bash_cmds = g_string_free(gs, FALSE);
         g_printf(bash_cmds);

@@ -447,7 +447,7 @@ gboolean _fix_missing_dependencies(GString **bash_cmds, gint recursion_level)
     return TRUE;
 }
 
-gboolean layer_load_recursive(Layer *layer, gboolean force_prepend, GString **bash_cmds, gint recursion_level)
+gboolean layer_load_recursive(Layer *layer, gboolean force_prepend, gboolean load_optional, GString **bash_cmds, gint recursion_level)
 {
     if (recursion_level > LAYER_MAX_RECURSION_LEVEL) {
         // FIXME: shoud be a warning but we have to see what's going on with tests
@@ -495,14 +495,14 @@ gboolean layer_load_recursive(Layer *layer, gboolean force_prepend, GString **ba
         } else {
             dep_layer = layer_new_from_label_or_home(label);
         }
-        if (!optional_dep) {
+        if (load_optional && (!optional_dep)) {
             if (dep_layer != NULL) {
                 if (!is_layer_loaded(dep_layer->home)) {
                     g_debug("layer %s[%s] depends on not loaded layer %s[%s] => \
                             loading %s", layer->label, layer->home,
                             dep_layer->label, dep_layer->home,
                             dep_layer->label);
-                    gboolean load_res = layer_load_recursive(dep_layer, force_prepend, bash_cmds, recursion_level + 1);
+                    gboolean load_res = layer_load_recursive(dep_layer, force_prepend, load_optional, bash_cmds, recursion_level + 1);
                     if (load_res == FALSE) {
                         layer_free(dep_layer);
                         return load_res;
@@ -531,7 +531,7 @@ gboolean layer_load_recursive(Layer *layer, gboolean force_prepend, GString **ba
                             trying to load %s", layer->label, layer->home,
                             dep_layer->label, dep_layer->home,
                             dep_layer->label);
-                    layer_load_recursive(dep_layer, force_prepend, bash_cmds, recursion_level + 1);
+                    layer_load_recursive(dep_layer, force_prepend, load_optional, bash_cmds, recursion_level + 1);
                 }
                 layer_free(dep_layer);
             } else {
@@ -543,9 +543,9 @@ gboolean layer_load_recursive(Layer *layer, gboolean force_prepend, GString **ba
     return TRUE;
 }
 
-gboolean layer_load(Layer *layer, gboolean force_prepend, GString **bash_cmds)
+gboolean layer_load(Layer *layer, gboolean force_prepend, gboolean load_optional, GString **bash_cmds)
 {
-    return layer_load_recursive(layer, force_prepend, bash_cmds, 0);
+    return layer_load_recursive(layer, force_prepend, load_optional, bash_cmds, 0);
 }
 
 
