@@ -17,6 +17,7 @@ static gchar *empty_env_keeps = "";
 static gchar *extra_env_prefix = NULL;
 static gchar **prepend_env = NULL;
 static gboolean force_prepend = FALSE;
+static gboolean dont_load_optional = FALSE;
 static GOptionEntry entries[] = {
     { "debug", 'd', 0, G_OPTION_ARG_NONE, &debug_mode, "debug mode", NULL },
     { "empty", 'e', 0, G_OPTION_ARG_NONE, &empty, "unload all layers before", NULL },
@@ -27,6 +28,7 @@ static GOptionEntry entries[] = {
     { "layers", 'l', 0, G_OPTION_ARG_STRING, &layers, "coma separated list of layers labels/homes ('-' before the name of the layer means 'optional dependency')", NULL },
     { "prepend-env", 'p', 0, G_OPTION_ARG_STRING_ARRAY, &prepend_env, "ENV_VAR,VALUE string to prepend VALUE in : separated ENV_VAR (like PATH) (can be used multiple times)", NULL },
     { "force-prepend", 'f', 0, G_OPTION_ARG_NONE, &force_prepend, "do not check existing paths in prepend", NULL },
+    { "dont-load-optional", 'd', 0, G_OPTION_ARG_NONE, &dont_load_optional, "don't load optional layers", NULL },
     {0, 0, 0, 0, 0, 0, 0}
 };
 
@@ -61,12 +63,12 @@ int main(int argc, char *argv[])
             if (strlen(tmp[i]) > 0) {
                 if (tmp[i][0] == '-') {
                     const gchar *label_or_home = tmp[i] + sizeof(gchar);
-                    LayerApi2Layer *tempo = layerapi2_layer_load(label_or_home, force_prepend, NULL);
+                    LayerApi2Layer *tempo = layerapi2_layer_load(label_or_home, force_prepend, !dont_load_optional, NULL);
                     if (tempo != NULL) {
                         layerapi2_layer_free(tempo);
                     }
                 } else {
-                    LayerApi2Layer *tempo = layerapi2_layer_load(tmp[i], force_prepend, NULL);
+                    LayerApi2Layer *tempo = layerapi2_layer_load(tmp[i], force_prepend, !dont_load_optional, NULL);
                     if (tempo == NULL) {
                         g_warning("impossible to load the layer: %s", tmp[i]);
                         res = FALSE;

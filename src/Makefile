@@ -12,8 +12,8 @@ else
 endif
 PREFIX=/usr/local
 
-_LDFLAGS=$(LDFLAGS) -L. $(shell pkg-config --libs glib-2.0 mfutil) $(FORCE_RPATH_STR)
-_CFLAGS=$(CFLAGS) -I. $(shell pkg-config --cflags glib-2.0 mfutil) -fPIC -Wall -std=c99 -Wextra -pedantic -Werror -Wshadow -Wstrict-overflow -fno-strict-aliasing -DG_LOG_DOMAIN=\"layerapi2\" $(DEBUG_CFLAGS)
+_LDFLAGS=$(LDFLAGS) -L. $(shell pkg-config --libs glib-2.0) $(FORCE_RPATH_STR)
+_CFLAGS=$(CFLAGS) -I. $(shell pkg-config --cflags glib-2.0) -fPIC -Wall -std=c99 -Wextra -pedantic -Werror -Wshadow -Wstrict-overflow -fno-strict-aliasing -DG_LOG_DOMAIN=\"layerapi2\" $(DEBUG_CFLAGS)
 
 CC=gcc
 
