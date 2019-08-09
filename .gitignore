@@ -50,3 +50,11 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+src/get_layer_home
+src/is_layer_installed
+src/is_layer_loaded
+src/layer_load_bash_cmds
+src/layer_unload_bash_cmds
+src/layer_wrapper
+src/layers
+src/test_layerapi2
