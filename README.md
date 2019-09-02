@@ -19,6 +19,19 @@ compiler.
 Initially designed for use in [MetWork Framework](http://www.metwork-framework.org), it's now
 a completly independant repository.
 
+## Table of Contents
+
+* [What is it ?](#what-is-it-)
+* [Concepts](#concepts)
+  * [Layers](#layers)
+  * [Layers path](#layers-path)
+  * [Installation / Loading / Unloading](#installation--loading--unloading)
+* [Tools](#tools)
+  * [layers](#layers-1)
+  * [is\_layer\_installed, is\_layer\_loaded](#is_layer_installed-is_layer_loaded)
+  * [layer\_wrapper](#layer_wrapper)
+  * [layer\_load\_bash\_cmds, layer\_unload\_bash\_cmds](#layer_load_bash_cmds-layer_unload_bash_cmds)
+
 ## Concepts
 
 ### Layers
