@@ -150,24 +150,13 @@ Help Options:
 
 ```
 
-### `bootstrap_layer.sh`
-
-This little utility can be used to bootstrap an empty layer.
-
-Details are given in the help message:
-
-```none
-/bin/sh: src/bootstrap_layer.sh: No such file or directory
-
-```
-
 ### `layer_wrapper`
 
 This is probably the most interesting and the most useful utility.
 
 First, let's have a look at full options:
 
-```none
+```console
 Usage:
   layer_wrapper [OPTION...] -- COMMAND [COMMAND_ARG1] [COMMAND_ARG2] [...] - wrapper to execute the given command in a process with some specific layers loaded
 
@@ -193,7 +182,7 @@ where some additional layers are loaded. The original context won't be modified.
 
 For example:
 
-```none
+```console
 $ is_layer_loaded foo
 0
     => The layer "foo" is not loaded
@@ -210,7 +199,7 @@ $ is_layer_loaded foo
 
 Another more complex example:
 
-```none
+```console
 $ layers
 - (*) layer1 [/tests/layer1]
 - layer2 [/tests/layer2]
@@ -241,7 +230,7 @@ Two very important utilities are `layer_load_bash_cmds` and `layer_unload_bash_c
 They output bash commands to source/eval in order to change the current context with the given
 layer loaded/unloaded (included all dependencies management).
 
-```none
+```console
 Usage:
   layer_load_bash_cmds [OPTION...] LAYER_LABEL OR LAYER_HOME - output bash commands to eval to load the given layer
 
@@ -255,7 +244,7 @@ Application Options:
 
 ```
 
-```none
+```console
 Usage:
   layer_unload_bash_cmds [OPTION...] LAYER_LABEL OR LAYER_HOME - output bash commands to eval to unload the given layer
 

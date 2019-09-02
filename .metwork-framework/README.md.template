@@ -131,23 +131,13 @@ These two little utilities output `1` is the layer given as argument is installe
 {{ "export LANG=C ; src/is_layer_loaded --help"|shell }}
 ```
 
-### `bootstrap_layer.sh`
-
-This little utility can be used to bootstrap an empty layer.
-
-Details are given in the help message:
-
-```none
-{{ "export LANG=C ; src/bootstrap_layer.sh --help"|shell }}
-```
-
 ### `layer_wrapper`
 
 This is probably the most interesting and the most useful utility.
 
 First, let's have a look at full options:
 
-```none
+```console
 {{ "export LANG=C ; src/layer_wrapper --help"|shell }}
 ```
 
@@ -156,7 +146,7 @@ where some additional layers are loaded. The original context won't be modified.
 
 For example:
 
-```none
+```console
 $ is_layer_loaded foo
 0
     => The layer "foo" is not loaded
@@ -175,7 +165,7 @@ $ is_layer_loaded foo
 
 Another more complex example:
 
-```none
+```console
 $ layers
 - (*) layer1 [/tests/layer1]
 - layer2 [/tests/layer2]
@@ -206,11 +196,11 @@ Two very important utilities are `layer_load_bash_cmds` and `layer_unload_bash_c
 They output bash commands to source/eval in order to change the current context with the given
 layer loaded/unloaded (included all dependencies management).
 
-```none
+```console
 {{ "export LANG=C ; src/layer_load_bash_cmds --help"|shell }}
 ```
 
-```none
+```console
 {{ "export LANG=C ; src/layer_unload_bash_cmds --help"|shell }}
 ```
 
