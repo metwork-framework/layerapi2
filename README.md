@@ -2,12 +2,14 @@
 
 [//]: # (automatically generated from https://github.com/metwork-framework/resources/blob/master/cookiecutter/_%7B%7Bcookiecutter.repo%7D%7D/README.md)
 
-## 1. Status (master branch)
+**Status (master branch)**
 [![Drone CI](http://metwork-framework.org:8000/api/badges/metwork-framework/layerapi2/status.svg)](http://metwork-framework.org:8000/metwork-framework/layerapi2)
 [![Maintenance](https://github.com/metwork-framework/resources/blob/master/badges/maintained.svg)]()
 
 
-## 2. What is it ?
+[//]: # TABLE_OF_CONTENTS_PLACEHOLDER
+
+## 1. What is it ?
 
 `layerapi2` module is a library and a set of cli tools to manage a layered environment
 system.
@@ -19,9 +21,9 @@ compiler.
 Initially designed for use in [MetWork Framework](http://www.metwork-framework.org), it's now
 a completly independant repository.
 
-## 3. Concepts
+## 2. Concepts
 
-### 3.1 Layers
+### 2.1 Layers
 
 A layer is defined by:
 
@@ -50,7 +52,7 @@ So concretely, a layer is a directory with the following structure:
 The only mandatory file is `.layerapi2_label`. It contains the layer label on its first and
 only line.
 
-### 3.2 Layers path
+### 2.2 Layers path
 
 The environment variable `LAYERAPI2_LAYERS_PATH` contains a ":" separated list
 of directories full paths.
@@ -88,7 +90,7 @@ Notes:
 the first occurrence is returned when searching by label
 (so the order of entries in LAYERAPI2_LAYERS_PATH can be important).
 
-### 3.3 Installation / Loading / Unloading
+### 2.3 Installation / Loading / Unloading
 
 We consider that a layer is *installed* if we can found it by its label through the layers path.
 
@@ -99,9 +101,9 @@ that in more detail a little further.
 
 When a layer is loaded, it can be unloaded. Then, the corresponding environment modification is reversed.
 
-## 4. Tools
+## 3. Tools
 
-### 4.1 `layers`
+### 3.1 `layers`
 
 The `layers` utility list installed layers. You can also filter the output to get:
 
@@ -137,7 +139,7 @@ You can also filter only "not loaded" (but installed) layers with the following 
 layers --loaded-filter=no
 ```
 
-### 4.2 `is_layer_installed`, `is_layer_loaded`
+### 3.2 `is_layer_installed`, `is_layer_loaded`
 
 These two little utilities output `1` is the layer given as argument is installed/loaded.
 
@@ -159,7 +161,7 @@ Help Options:
 
 ```
 
-### 4.3 `layer_wrapper`
+### 3.3 `layer_wrapper`
 
 This is probably the most interesting and the most useful utility.
 
@@ -232,7 +234,7 @@ $ layers
     => the original context is not modified
 ```
 
-### 4.4 `layer_load_bash_cmds`, `layer_unload_bash_cmds`
+### 3.4 `layer_load_bash_cmds`, `layer_unload_bash_cmds`
 
 Two very important utilities are `layer_load_bash_cmds` and `layer_unload_bash_cmds`.
 
@@ -287,19 +289,19 @@ FIXME: full tutorial
 
 
 
-## 5. Contributing guide
+## 4. Contributing guide
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 
 
-## 6. Code of Conduct
+## 5. Code of Conduct
 
 See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) file.
 
 
 
-## 7. Sponsors
+## 6. Sponsors
 
 *(If you are officially paid to work on MetWork Framework, please contact us to add your company logo here!)*
 
