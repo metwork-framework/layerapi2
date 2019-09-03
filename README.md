@@ -19,22 +19,9 @@ compiler.
 Initially designed for use in [MetWork Framework](http://www.metwork-framework.org), it's now
 a completly independant repository.
 
-## 3. Table of Contents
+## 3. Concepts
 
-* [What is it ?](#what-is-it-)
-* [Concepts](#concepts)
-  * [Layers](#layers)
-  * [Layers path](#layers-path)
-  * [Installation / Loading / Unloading](#installation--loading--unloading)
-* [Tools](#tools)
-  * [layers](#layers-1)
-  * [is\_layer\_installed, is\_layer\_loaded](#is_layer_installed-is_layer_loaded)
-  * [layer\_wrapper](#layer_wrapper)
-  * [layer\_load\_bash\_cmds, layer\_unload\_bash\_cmds](#layer_load_bash_cmds-layer_unload_bash_cmds)
-
-## 4. Concepts
-
-### 4.1 Layers
+### 3.1 Layers
 
 A layer is defined by:
 
@@ -63,7 +50,7 @@ So concretely, a layer is a directory with the following structure:
 The only mandatory file is `.layerapi2_label`. It contains the layer label on its first and
 only line.
 
-### 4.2 Layers path
+### 3.2 Layers path
 
 The environment variable `LAYERAPI2_LAYERS_PATH` contains a ":" separated list
 of directories full paths.
@@ -101,7 +88,7 @@ Notes:
 the first occurrence is returned when searching by label
 (so the order of entries in LAYERAPI2_LAYERS_PATH can be important).
 
-### 4.3 Installation / Loading / Unloading
+### 3.3 Installation / Loading / Unloading
 
 We consider that a layer is *installed* if we can found it by its label through the layers path.
 
@@ -112,9 +99,9 @@ that in more detail a little further.
 
 When a layer is loaded, it can be unloaded. Then, the corresponding environment modification is reversed.
 
-## 5. Tools
+## 4. Tools
 
-### 5.1 `layers`
+### 4.1 `layers`
 
 The `layers` utility list installed layers. You can also filter the output to get:
 
@@ -150,7 +137,7 @@ You can also filter only "not loaded" (but installed) layers with the following 
 layers --loaded-filter=no
 ```
 
-### 5.2 `is_layer_installed`, `is_layer_loaded`
+### 4.2 `is_layer_installed`, `is_layer_loaded`
 
 These two little utilities output `1` is the layer given as argument is installed/loaded.
 
@@ -172,7 +159,7 @@ Help Options:
 
 ```
 
-### 5.3 `layer_wrapper`
+### 4.3 `layer_wrapper`
 
 This is probably the most interesting and the most useful utility.
 
@@ -245,7 +232,7 @@ $ layers
     => the original context is not modified
 ```
 
-### 5.4 `layer_load_bash_cmds`, `layer_unload_bash_cmds`
+### 4.4 `layer_load_bash_cmds`, `layer_unload_bash_cmds`
 
 Two very important utilities are `layer_load_bash_cmds` and `layer_unload_bash_cmds`.
 
@@ -300,19 +287,19 @@ FIXME: full tutorial
 
 
 
-## 6. Contributing guide
+## 5. Contributing guide
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) file.
 
 
 
-## 7. Code of Conduct
+## 6. Code of Conduct
 
 See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) file.
 
 
 
-## 8. Sponsors
+## 7. Sponsors
 
 *(If you are officially paid to work on MetWork Framework, please contact us to add your company logo here!)*
 
