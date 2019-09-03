@@ -10,10 +10,6 @@ compiler.
 Initially designed for use in [MetWork Framework](http://www.metwork-framework.org), it's now
 a completly independant repository.
 
-## Table of Contents
-
-{{ "export LANG=C ; ./bootstrap/bin/gh-md-toc --depth=2 --hide-footer --hide-header .metwork-framework/README.md.template |grep -v 'table-of-contents'"|shell }}
-
 ## Concepts
 
 ### Layers
