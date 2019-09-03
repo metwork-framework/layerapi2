@@ -10,15 +10,14 @@
 [![Maintenance](https://github.com/metwork-framework/resources/blob/master/badges/maintained.svg)]()
 
 
-** Table of contents **
+**Table of contents**
 
-* [layerapi2](#layerapi2)
-  * [1\. What is it ?](#1-what-is-it-)
-  * [2\. Concepts](#2-concepts)
-  * [3\. Tools](#3-tools)
-  * [4\. Contributing guide](#4-contributing-guide)
-  * [5\. Code of Conduct](#5-code-of-conduct)
-  * [6\. Sponsors](#6-sponsors)
+* [1\. What is it ?](#1-what-is-it-)
+* [2\. Concepts](#2-concepts)
+* [3\. Tools](#3-tools)
+* [4\. Contributing guide](#4-contributing-guide)
+* [5\. Code of Conduct](#5-code-of-conduct)
+* [6\. Sponsors](#6-sponsors)
 
 
 
