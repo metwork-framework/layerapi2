@@ -12,8 +12,13 @@ else
 endif
 PREFIX=/usr/local
 
+ifeq ($(COVERAGE),yes)
+    COVERAGE_CFLAGS=-fprofile-arcs -ftest-coverage
+else
+    COVERAGE_CFLAGS=
+endif
 _LDFLAGS=$(LDFLAGS) -L. $(shell pkg-config --libs glib-2.0) $(FORCE_RPATH_STR)
-_CFLAGS=$(CFLAGS) -I. $(shell pkg-config --cflags glib-2.0) -fPIC -Wall -std=c99 -Wextra -pedantic -Werror -Wshadow -Wstrict-overflow -fno-strict-aliasing -DG_LOG_DOMAIN=\"layerapi2\" $(DEBUG_CFLAGS)
+_CFLAGS=$(CFLAGS) -I. $(shell pkg-config --cflags glib-2.0) -fPIC -Wall -std=c99 -Wextra -pedantic -Werror -Wshadow -Wstrict-overflow -fno-strict-aliasing -DG_LOG_DOMAIN=\"layerapi2\" $(DEBUG_CFLAGS) $(COVERAGE_CFLAGS)
 
 CC=gcc
 
@@ -24,9 +29,6 @@ INCLUDES=layerapi2.h
 _BINS=layers test_layerapi2 layer_load_bash_cmds layer_unload_bash_cmds is_layer_loaded is_layer_installed layer_wrapper get_layer_home
 BINS=$(_BINS)
 VALGRIND=./valgrind.sh
-ifeq ($(COVERAGE),yes)
-    COVERAGE_CFLAGS=-fprofile-arcs -ftest-coverage
-endif
 
 OBJECTS=util.o log.o layer.o layerapi2.o wrapper.o
 

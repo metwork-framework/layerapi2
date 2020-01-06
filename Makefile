@@ -16,5 +16,8 @@ check:
 leak:
 	cd src && $(MAKE) leak
 
+coverage:
+	cd src && $(MAKE) coverage
+
 .metwork-framework/README.md: .metwork-framework/README.md.template
 	cat $< |./bootstrap/bin/penvtpl --reduce-multi-blank-lines >$@ 2>&1 || ( echo "ERROR during generation" ; echo "===== Output =====" ; cat $@ ; echo "===== /Output =====" ; rm -f $@ )
