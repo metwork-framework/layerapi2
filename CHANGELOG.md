@@ -2,6 +2,11 @@
 
 
 
+## v0.0.4 (2020-01-28)
+
+- No interesting change
+
+
 ## v0.0.3 (2019-10-03)
 
 ### New Features
