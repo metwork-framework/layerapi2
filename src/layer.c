@@ -375,6 +375,7 @@ void _layer_load(Layer *layer, gboolean force_prepend, GString **bash_cmds)
     conditional_prepend_env(layer->home, "local/lib", force_prepend, "LD_LIBRARY_PATH", bash_cmds);
     conditional_prepend_env(layer->home, "lib/pkgconfig", force_prepend, "PKG_CONFIG_PATH", bash_cmds);
     conditional_prepend_env(layer->home, "local/lib/pkgconfig", force_prepend, "PKG_CONFIG_PATH", bash_cmds);
+    conditional_prepend_env(layer->home, "share/aclocal", force_prepend, "ACLOCAL_PATH", bash_cmds);
     conditional_source(layer->home, get_layer_interactive_profile_filename(), bash_cmds);
     conditional_add_extra_env(layer->home, get_layer_extra_env_filename(), bash_cmds);
     set_layer_loaded(layer->home, bash_cmds);
@@ -396,6 +397,7 @@ void _layer_unload(Layer *layer, GString **bash_cmds)
     field_remove_env("PATH", layer_home_wildcards, TRUE, bash_cmds);
     field_remove_env("LD_LIBRARY_PATH", layer_home_wildcards, TRUE, bash_cmds);
     field_remove_env("PKG_CONFIG_PATH", layer_home_wildcards, TRUE, bash_cmds);
+    field_remove_env("ACLOCAL_PATH", layer_home_wildcards, TRUE, bash_cmds);
     field_remove_env("PYTHONPATH", layer_home_wildcards, TRUE, bash_cmds);
     field_remove_env("NODE_PATH", layer_home_wildcards, TRUE, bash_cmds);
     conditional_source(layer->home, get_layer_interactive_unprofile_filename(), bash_cmds);
