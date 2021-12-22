@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v0.0.5 (2021-12-21)
+
+### New Features
+
+- add layer local path (share/axlocal) to ACLOCAL_PATH
+
 ## v0.0.4 (2020-01-28)
 
 - No interesting change
