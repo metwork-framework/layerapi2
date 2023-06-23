@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     context = g_option_context_new("- list installed layers");
     g_option_context_add_main_entries(context, entries, NULL);
     if (!g_option_context_parse(context, &argc, &argv, NULL)) {
-        g_print(g_option_context_get_help(context, TRUE, NULL));
+        g_printf("%s", g_option_context_get_help(context, TRUE, NULL));
         exit(1);
     }
     GSList *layers = layerapi2_get_installed_layers();
