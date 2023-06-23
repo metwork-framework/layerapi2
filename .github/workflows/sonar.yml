@@ -22,8 +22,7 @@ jobs:
       uses: sonarsource/sonarcloud-github-c-cpp@v1
     - name: Run build-wrapper
       run: |
-        #apt -y update
-        #apt -y install build-essential
+        export CFLAGS="-Wno-deprecated"
         build-wrapper-linux-x86-64 --out-dir ${{ env.BUILD_WRAPPER_OUT_DIR }} make all check link install
     - name: Run sonar-scanner
       env:
