@@ -214,7 +214,7 @@ gchar *field_remove(const gchar *list_of_values, const gchar *value,
         if (!use_wildcards) {
             match = (g_strcmp0(tmp[i], value) == 0);
         } else {
-            match = g_pattern_match_string(pattern, tmp[i]);
+            match = g_pattern_spec_match_string(pattern, tmp[i]);
         }
         if (!match) {
             if (!first) {
