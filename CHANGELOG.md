@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## [Unreleased]
+
+### New Features
+
+- add sonarqube analysis
+
+### Bug Fixes
+
+- fix format security error
+
 ## v0.0.4 (2020-01-28)
 
 - No interesting change
