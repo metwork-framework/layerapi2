@@ -1,5 +1,6 @@
 #include <glib.h>
 #include <glib/gprintf.h>
+#include <glib/genviron.h>
 #include <locale.h>
 #include <stdlib.h>
 
