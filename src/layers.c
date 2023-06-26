@@ -1,7 +1,5 @@
 #include <glib.h>
-#include <glib/genviron.h>
-#include <glib/goption.h>
-#include <glib/gtestutils.h>
+#include <glib/gprintf.h>
 #include <locale.h>
 #include <stdlib.h>
 
@@ -17,7 +15,6 @@ static GOptionEntry entries[] = {
 
 int main(int argc, char *argv[])
 {
-#include <glib/gprintf.h>
     GOptionContext *context;
     layerapi2_init(TRUE);
     setlocale(LC_ALL, "");
