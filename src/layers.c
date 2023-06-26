@@ -12,9 +12,9 @@ static GOptionEntry entries[] = {
     { "loaded-filter", 'm', 0, G_OPTION_ARG_STRING, &loaded_filter, "Loaded layer filter (default: no filter, possible values: yes, no)", NULL },
     {0, 0, 0, 0, 0, 0, 0}
 };
-extern GOptionContext *g_option_context_new(const gchar *parameter_string);
 int main(int argc, char *argv[])
 {
+    extern GOptionContext *g_option_context_new(const gchar *parameter_string);
     GOptionContext *context;
     layerapi2_init(TRUE);
     setlocale(LC_ALL, "");
