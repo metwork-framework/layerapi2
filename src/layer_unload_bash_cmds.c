@@ -20,11 +20,11 @@ int main(int argc, char *argv[])
     context = g_option_context_new("LAYER_LABEL OR LAYER_HOME - output bash commands to eval to unload the given layer");
     g_option_context_add_main_entries(context, entries, NULL);
     if (!g_option_context_parse(context, &argc, &argv, NULL)) {
-        g_print(g_option_context_get_help(context, TRUE, NULL));
+        g_print("%s", g_option_context_get_help(context, TRUE, NULL));
         exit(1);
     }
     if (argc != 2) {
-        g_print(g_option_context_get_help(context, TRUE, NULL));
+        g_print("%s", g_option_context_get_help(context, TRUE, NULL));
         exit(1);
     }
     layerapi2_init(debug_mode);
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     gboolean res = layerapi2_layer_unload(label_or_home, &gs);
     if (res) {
         gchar *bash_cmds = g_string_free(gs, FALSE);
-        g_printf(bash_cmds);
+        g_printf("%s", bash_cmds);
         g_free(bash_cmds);
         result = 0;
     } else {
