@@ -72,7 +72,7 @@ liblayerapi2.so: $(OBJECTS)
 	$(CC) -shared $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) -o $@ $^
 
 layers: layers.c $(OBJECTS)
-	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) $^
+	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $^ $(_LDFLAGS)
 
 is_layer_loaded: is_layer_loaded.c $(OBJECTS)
 	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) $^
