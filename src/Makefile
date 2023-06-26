@@ -75,25 +75,25 @@ layers: layers.c $(OBJECTS)
 	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $^ $(_LDFLAGS)
 
 is_layer_loaded: is_layer_loaded.c $(OBJECTS)
-	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) $^
+	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $^ $(_LDFLAGS)
 
 get_layer_home: get_layer_home.c $(OBJECTS)
-	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) $^
+	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $^ $(_LDFLAGS)
 
 is_layer_installed: is_layer_installed.c $(OBJECTS)
-	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) $^
+	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $^ $(_LDFLAGS)
 
 layer_wrapper: layer_wrapper.c $(OBJECTS)
-	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) $^
+	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $^ $(_LDFLAGS)
 
 layer_load_bash_cmds: layer_load_bash_cmds.c $(OBJECTS)
-	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) $^
+	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $^ $(_LDFLAGS)
 
 layer_unload_bash_cmds: layer_unload_bash_cmds.c $(OBJECTS)
-	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) $^
+	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $^ $(_LDFLAGS)
 
 test_layerapi2: test_layerapi2.c $(OBJECTS)
-	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) $^
+	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $^ $(_LDFLAGS)
 
 check: test_layerapi2
 	./test_layerapi2 && echo "OK"
