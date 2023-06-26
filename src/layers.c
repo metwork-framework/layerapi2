@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     GOptionContext *context;
     layerapi2_init(TRUE);
     setlocale(LC_ALL, "");
-    context = extern g_option_context_new("- list installed layers");
+    context = g_option_context_new("- list installed layers");
     g_option_context_add_main_entries(context, entries, NULL);
     if (!g_option_context_parse(context, &argc, &argv, NULL)) {
         g_printf("%s", g_option_context_get_help(context, TRUE, NULL));

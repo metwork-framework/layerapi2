@@ -17,7 +17,8 @@ ifeq ($(COVERAGE),yes)
 else
     COVERAGE_CFLAGS=
 endif
-_LDFLAGS=$(LDFLAGS) -L. $(shell pkg-config --libs glib-2.0) $(FORCE_RPATH_STR)
+#_LDFLAGS=$(LDFLAGS) -L. $(shell pkg-config --libs glib-2.0) $(FORCE_RPATH_STR)
+_LDFLAGS=$(LDFLAGS) $(shell pkg-config --libs glib-2.0) -L. $(FORCE_RPATH_STR)
 _CFLAGS=$(CFLAGS) -I. $(shell pkg-config --cflags glib-2.0) -fPIC -Wall -std=c99 -Wextra -pedantic -Werror -Wshadow -Wstrict-overflow -Wno-cast-function-type -fno-strict-aliasing -DG_LOG_DOMAIN=\"layerapi2\" $(DEBUG_CFLAGS) $(COVERAGE_CFLAGS)
 
 CC=gcc
