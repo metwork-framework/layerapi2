@@ -74,7 +74,7 @@ log.o: log.c log.h
 liblayerapi2.so: $(OBJECTS)
 	$(CC) -shared $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) -o $@ $^
 
-layers: layers.c $(OBJECTS)
+layers: layers.o $(OBJECTS)
 	$(CC) -o $@ $(_LDFLAGS) $^
 	#$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) $^
 
