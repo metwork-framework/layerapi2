@@ -40,11 +40,11 @@ int main(int argc, char *argv[])
     context = g_option_context_new("-- COMMAND [COMMAND_ARG1] [COMMAND_ARG2] [...] - wrapper to execute the given command in a process with some specific layers loaded");
     g_option_context_add_main_entries(context, entries, NULL);
     if (!g_option_context_parse(context, &argc, &argv, NULL)) {
-        g_print(g_option_context_get_help(context, TRUE, NULL));
+        g_print("%s", g_option_context_get_help(context, TRUE, NULL));
         exit(1);
     }
     if (argc < 2) {
-        g_print(g_option_context_get_help(context, TRUE, NULL));
+        g_print("%s", g_option_context_get_help(context, TRUE, NULL));
         exit(1);
     }
     layerapi2_init(debug_mode);
