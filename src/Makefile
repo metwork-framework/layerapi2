@@ -53,9 +53,6 @@ clean::
 	rm -Rf coverage core.*
 	rm -f app.info *.gcno *.gcda
 
-layers.o: layers.c
-	$(CC) -c $(_CFLAGS) $(_INCLUDES) $<
-
 layer.o: layer.c layer.h
 	$(CC) -c $(_CFLAGS) $(_INCLUDES) $<
 
@@ -74,9 +71,8 @@ log.o: log.c log.h
 liblayerapi2.so: $(OBJECTS)
 	$(CC) -shared $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) -o $@ $^
 
-layers: layers.o $(OBJECTS)
-	$(CC) -o $@ $(_LDFLAGS) $^
-	#$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) $^
+layers: layers.c $(OBJECTS)
+	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) $^
 
 is_layer_loaded: is_layer_loaded.c $(OBJECTS)
 	$(CC) -o $@ $(_CFLAGS) $(_INCLUDES) $(_LDFLAGS) $^

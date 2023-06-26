@@ -15,6 +15,8 @@ static GOptionEntry entries[] = {
 
 int main(int argc, char *argv[])
 {
+#include <glib.h>
+#include <glib/gprintf.h>
     GOptionContext *context;
     layerapi2_init(TRUE);
     setlocale(LC_ALL, "");
